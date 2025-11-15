@@ -4,10 +4,8 @@ import random
 def choose_action(actions):
     # Return an action based on chance
     roll = random.random() * 100
-    chosen = "Undecided"
-    c = 0
 
-    # print(f"The actions are {actions}")
+    c = 0
 
     for action, chance in actions:
         c += chance

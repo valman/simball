@@ -32,8 +32,9 @@ def main():
     print(f"Verbose: {args.verbose}")
     print(f"Possessions: {args.possessions}")
 
+    # Get home team from arg 1
     home_team = args.team1
-    #py maway_team = args.team2
+    #away_team = args.team2
 
     # Load team stats
     df_per = pd.read_csv("data/2025-nba-teams-per.csv")

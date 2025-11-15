@@ -25,6 +25,12 @@ class Team:
             case "shoot":
                 actions = [("3", self.ThPA), ("2", 100 - self.ThPA)]
                 shot_type = choose_action(actions)
+
+                # Is it blocked?
+
+
+
+                # If it's a 3PT shot
                 match shot_type:
                     case "3":
                         self.stats["FGA"] += 1
@@ -157,7 +163,7 @@ class Team:
 
     # Shoot free throws
     def shoot_freethrow(self, count, ftp):
-
+        goal_ft = 0  # No FT shot made yet
         for i in range(count):
             print(f"Shooting {i+1} of {count} ... ", end="")
             self.stats["FTA"] += 1
