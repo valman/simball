@@ -46,11 +46,11 @@ class Team:
                                 print("✔️  made → ", end="")
 
                                 # Fouled?
-                                if (self.is_fouled(self.PF)):
+                                if self.is_fouled(self.PF):
                                     print("✊🏻 fouled ")
-                                    if (self.shoot_freethrow(1, self.FTPct) == 0):
+                                    if self.shoot_freethrow(1, self.FTPct) == 0:
                                         # Determine who rebounds the ball
-                                        if (self.rebound(self.ORB)):
+                                        if self.rebound(self.ORB):
                                             self.stats["ORB"] += 1
                                             print("👋  offensive rebound ")
                                             return "reset"
@@ -58,17 +58,17 @@ class Team:
                                             print("Defensive rebound → End")
                                             return "over"
                                 else:
-                                    print("End")
+                                    print("End.")
                                     return "over"
 
                             case "Out":
                                 print("⭕ missed → ", end="")
 
-                                if (self.is_fouled(self.PF)):
+                                if self.is_fouled(self.PF):
                                     print("✊🏻 fouled!")
-                                    if (self.shoot_freethrow(3, self.FTPct) == 0):
+                                    if self.shoot_freethrow(3, self.FTPct) == 0:
                                         # Determine who rebounds the ball
-                                        if (self.rebound(self.ORB)):
+                                        if self.rebound(self.ORB):
                                             self.stats["ORB"] += 1
                                             print("👋  offensive rebound ")
                                             return "reset"
@@ -77,7 +77,7 @@ class Team:
                                             return "over"
                                 else:
                                     # Determine who rebounds the ball
-                                    if (self.rebound(self.ORB)):
+                                    if self.rebound(self.ORB):
                                         self.stats["ORB"] += 1
                                         print("👋  offensive rebound ")
                                         return "reset"
@@ -102,12 +102,12 @@ class Team:
                                 print("✔️  made → " , end="")
 
                                 # Fouled?
-                                if (self.is_fouled(self.PF)):
+                                if self.is_fouled(self.PF):
                                     print("✊🏻 fouled!")
 
-                                    if (self.shoot_freethrow(1, self.FTPct) == 0):
+                                    if self.shoot_freethrow(1, self.FTPct) == 0:
                                         # Determine who rebounds the ball
-                                        if (self.rebound(self.ORB)):
+                                        if self.rebound(self.ORB):
                                             self.stats["ORB"] += 1
                                             print("👋  offensive rebound ")
                                             return "reset"
@@ -122,27 +122,27 @@ class Team:
                             case "Out":
                                 print("⭕ missed → ", end="")
 
-                                if (self.is_fouled(self.PF)):
+                                if self.is_fouled(self.PF):
                                     print("✊🏻 fouled ")
 
-                                    if (self.shoot_freethrow(2, self.FTPct) == 0):
+                                    if self.shoot_freethrow(2, self.FTPct) == 0:
                                         # Determine who rebounds the ball
-                                        if (self.rebound(self.ORB)):
+                                        if self.rebound(self.ORB):
                                             self.stats["ORB"] += 1
                                             print("👋  offensive rebound ")
                                             return "reset"
                                         else:
-                                            print("Defensive rebound → End")
+                                            print("Defensive rebound → End.")
                                             return "over"
 
                                 else:
                                     # Determine who rebounds the ball
-                                    if (self.rebound(self.ORB)):
+                                    if self.rebound(self.ORB):
                                         self.stats["ORB"] += 1
                                         print("👋  offensive rebound ")
                                         return "reset"
                                     else:
-                                        print("Defensive rebound → End")
+                                        print("Defensive rebound → End.")
                                         return "over"
 
             case "pass":
@@ -158,7 +158,7 @@ class Team:
     # Append safely
     def add_log(self, level, message):
         if level not in self.log:
-            self.log[level] = []  # create list if doesn't exist
+            self.log[level] = []  # create list if it doesn't exist
         self.log[level].append(message)
 
     # Shoot free throws
@@ -169,7 +169,7 @@ class Team:
             self.stats["FTA"] += 1
             actions = [(1, ftp), (0 , 100 - ftp)]
             goal_ft = choose_action(actions)
-            if (goal_ft):
+            if goal_ft:
                 print("✔️ made")
                 self.stats["FTM"] += 1
             else:
